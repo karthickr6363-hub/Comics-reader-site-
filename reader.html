@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Mode - ComicVerse</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reader.css">
+</head>
+<body class="reader-body light-mode">
+    <!-- Reader Header -->
+    <header class="reader-header">
+        <div class="reader-nav">
+            <a href="comic-detail.html" class="btn-back">← Back</a>
+            <div class="reader-title">
+                <h2>The Last Guardian</h2>
+                <span>Chapter 1</span>
+            </div>
+            <div class="reader-controls-top">
+                <button class="btn-control" onclick="toggleBookmark()" id="bookmarkBtn" title="Bookmark">🔖</button>
+                <button class="btn-control" onclick="toggleTheme()" id="themeBtn" title="Dark/Light Mode">🌙</button>
+                <button class="btn-control" onclick="toggleFullscreen()" title="Fullscreen">⛶</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Reader Controls Bar -->
+    <div class="reader-controls-bar">
+        <div class="container">
+            <div class="controls-left">
+                <button class="btn-nav" onclick="previousChapter()">‹ Previous Chapter</button>
+            </div>
+            <div class="controls-center">
+                <div class="zoom-controls">
+                    <button class="btn-zoom" onclick="zoomOut()">−</button>
+                    <span id="zoomLevel">100%</span>
+                    <button class="btn-zoom" onclick="zoomIn()">+</button>
+                </div>
+                <div class="reading-mode-toggle">
+                    <button class="mode-btn active" data-mode="page" onclick="setReadingMode('page')">📄 Page</button>
+                    <button class="mode-btn" data-mode="scroll" onclick="setReadingMode('scroll')">📜 Scroll</button>
+                </div>
+            </div>
+            <div class="controls-right">
+                <button class="btn-nav" onclick="nextChapter()">Next Chapter ›</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reader Content -->
+    <main class="reader-main">
+        <div class="reader-container" id="readerContainer">
+            <!-- Page Mode -->
+            <div class="reading-mode-page" id="pageMode">
+                <div class="comic-page">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1200'%3E%3Crect fill='%23f0f0f0' width='800' height='1200'/%3E%3Ctext x='400' y='600' font-size='24' text-anchor='middle' fill='%23999'%3EComic Page 1%3C/text%3E%3C/svg%3E" alt="Page 1" class="page-image">
+                </div>
+                <div class="comic-page">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1200'%3E%3Crect fill='%23f0f0f0' width='800' height='1200'/%3E%3Ctext x='400' y='600' font-size='24' text-anchor='middle' fill='%23999'%3EComic Page 2%3C/text%3E%3C/svg%3E" alt="Page 2" class="page-image">
+                </div>
+                <div class="comic-page">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1200'%3E%3Crect fill='%23f0f0f0' width='800' height='1200'/%3E%3Ctext x='400' y='600' font-size='24' text-anchor='middle' fill='%23999'%3EComic Page 3%3C/text%3E%3C/svg%3E" alt="Page 3" class="page-image">
+                </div>
+            </div>
+
+            <!-- Scroll Mode -->
+            <div class="reading-mode-scroll" id="scrollMode" style="display: none;">
+                <div class="comic-page-scroll">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1200'%3E%3Crect fill='%23f0f0f0' width='800' height='1200'/%3E%3Ctext x='400' y='600' font-size='24' text-anchor='middle' fill='%23999'%3EComic Page 1%3C/text%3E%3C/svg%3E" alt="Page 1" class="page-image">
+                </div>
+                <div class="comic-page-scroll">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1200'%3E%3Crect fill='%23f0f0f0' width='800' height='1200'/%3E%3Ctext x='400' y='600' font-size='24' text-anchor='middle' fill='%23999'%3EComic Page 2%3C/text%3E%3C/svg%3E" alt="Page 2" class="page-image">
+                </div>
+                <div class="comic-page-scroll">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1200'%3E%3Crect fill='%23f0f0f0' width='800' height='1200'/%3E%3Ctext x='400' y='600' font-size='24' text-anchor='middle' fill='%23999'%3EComic Page 3%3C/text%3E%3C/svg%3E" alt="Page 3" class="page-image">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Reader Footer -->
+    <footer class="reader-footer">
+        <div class="container">
+            <div class="chapter-nav">
+                <button class="btn-chapter-nav" onclick="previousChapter()">
+                    <span>‹</span>
+                    <div>
+                        <div class="nav-label">Previous</div>
+                        <div class="nav-chapter">Chapter 0</div>
+                    </div>
+                </button>
+                <div class="chapter-selector">
+                    <select id="chapterSelect" onchange="goToChapter()">
+                        <option value="1" selected>Chapter 1</option>
+                        <option value="2">Chapter 2</option>
+                        <option value="3">Chapter 3</option>
+                        <option value="4">Chapter 4</option>
+                        <option value="5">Chapter 5</option>
+                    </select>
+                </div>
+                <button class="btn-chapter-nav" onclick="nextChapter()">
+                    <div>
+                        <div class="nav-label">Next</div>
+                        <div class="nav-chapter">Chapter 2</div>
+                    </div>
+                    <span>›</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Continue Reading Modal -->
+    <div id="continueModal" class="continue-modal" style="display: none;">
+        <div class="continue-modal-content">
+            <h3>Continue Reading?</h3>
+            <p>You were reading Chapter 3, Page 5</p>
+            <div class="continue-actions">
+                <button class="btn-primary" onclick="continueReading()">Continue</button>
+                <button class="btn-secondary" onclick="closeContinueModal()">Start from Beginning</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/reader.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComicVerse - Your Ultimate Comics Reader</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">ComicVerse</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="genres.html">Genres</a></li>
+                <li><a href="authors.html">Authors</a></li>
+                <li><a href="blog.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Mobile-only auth buttons inside the dropdown -->
+                <li class="nav-auth-mobile">
+                    <a href="login.html" class="btn-login">Login</a>
+                    <a href="register.html" class="btn-signup">Sign Up</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" onclick="openSearch()">🔍</button>
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="register.html" class="btn-signup">Sign Up</a>
+            </div>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Featured Comics Slider -->
+    <section class="hero-section">
+        <div class="hero-slider">
+            <div class="slide active" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);">
+                <div class="container">
+                    <div class="slide-content">
+                        <div class="slide-image">
+                            <div class="comic-cover-large cover-guardian">
+                                <span class="comic-badge">NEW</span>
+                                <div class="cover-glow"></div>
+                                <div class="cover-character">🛡️</div>
+                                <p class="cover-tagline">"One hero, zero coffee breaks."</p>
+                            </div>
+                        </div>
+                        <div class="slide-text">
+                            <h1 class="slide-title">The Last Guardian</h1>
+                            <p class="slide-author">By Alex Thunder</p>
+                            <p class="slide-description">In a world where heroes are fading, one guardian rises to protect the last hope of humanity.</p>
+                            <div class="slide-actions">
+                                <a href="reader.html" class="btn-primary">Start Reading</a>
+                                <button class="btn-secondary">Add to Favorites</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);">
+                <div class="container">
+                    <div class="slide-content">
+                        <div class="slide-image">
+                            <div class="comic-cover-large cover-cyber">
+                                <span class="comic-badge">TRENDING</span>
+                                <div class="cover-glow"></div>
+                                <div class="cover-character">🤖</div>
+                                <p class="cover-tagline">"Glitched once, autosaved twice."</p>
+                            </div>
+                        </div>
+                        <div class="slide-text">
+                            <h1 class="slide-title">Cyber Dreams</h1>
+                            <p class="slide-author">By Maya Chen</p>
+                            <p class="slide-description">A thrilling journey through virtual realities where dreams become reality.</p>
+                            <div class="slide-actions">
+                                <a href="reader.html" class="btn-primary">Start Reading</a>
+                                <button class="btn-secondary">Add to Favorites</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <div class="container">
+                    <div class="slide-content">
+                        <div class="slide-image">
+                            <div class="comic-cover-large cover-shadow">
+                                <span class="comic-badge">POPULAR</span>
+                                <div class="cover-glow"></div>
+                                <div class="cover-character">🥷</div>
+                                <p class="cover-tagline">"You saw nothing... except this ad."</p>
+                            </div>
+                        </div>
+                        <div class="slide-text">
+                            <h1 class="slide-title">Shadow Warriors</h1>
+                            <p class="slide-author">By Ryan Blade</p>
+                            <p class="slide-description">Elite warriors fight in the shadows to protect the innocent from ancient evils.</p>
+                            <div class="slide-actions">
+                                <a href="reader.html" class="btn-primary">Start Reading</a>
+                                <button class="btn-secondary">Add to Favorites</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button class="slider-btn prev" onclick="changeSlide(-1)">‹</button>
+            <button class="slider-btn next" onclick="changeSlide(1)">›</button>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- Latest Updates Section -->
+    <section class="latest-updates">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Updates</h2>
+                <a href="library.html" class="view-all">View All →</a>
+            </div>
+            <div class="comics-grid">
+                <div class="comic-card">
+                    <div class="comic-cover cover-dragon">
+                        <span class="update-badge">Ch. 45</span>
+                        <div class="comic-overlay">
+                            <button class="quick-read">Read Now</button>
+                        </div>
+                        <div class="comic-emoji">🐉</div>
+                    </div>
+                    <div class="comic-info">
+                        <h3>Dragon's Quest</h3>
+                        <p class="comic-author">Sarah Moon</p>
+                        <div class="comic-meta">
+                            <span class="rating">⭐ 4.8</span>
+                            <span class="views">👁 12.5k</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <div class="comic-cover cover-neon">
+                        <span class="update-badge">Ch. 32</span>
+                        <div class="comic-overlay">
+                            <button class="quick-read">Read Now</button>
+                        </div>
+                        <div class="comic-emoji">🌃</div>
+                    </div>
+                    <div class="comic-info">
+                        <h3>Neon Nights</h3>
+                        <p class="comic-author">Jake Neon</p>
+                        <div class="comic-meta">
+                            <span class="rating">⭐ 4.9</span>
+                            <span class="views">👁 18.2k</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <div class="comic-cover cover-mystic">
+                        <span class="update-badge">Ch. 28</span>
+                        <div class="comic-overlay">
+                            <button class="quick-read">Read Now</button>
+                        </div>
+                        <div class="comic-emoji">🔮</div>
+                    </div>
+                    <div class="comic-info">
+                        <h3>Mystic Realm</h3>
+                        <p class="comic-author">Luna Star</p>
+                        <div class="comic-meta">
+                            <span class="rating">⭐ 4.7</span>
+                            <span class="views">👁 9.8k</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <div class="comic-cover cover-space">
+                        <span class="update-badge">Ch. 51</span>
+                        <div class="comic-overlay">
+                            <button class="quick-read">Read Now</button>
+                        </div>
+                        <div class="comic-emoji">🛰️</div>
+                    </div>
+                    <div class="comic-info">
+                        <h3>Space Odyssey</h3>
+                        <p class="comic-author">Max Cosmos</p>
+                        <div class="comic-meta">
+                            <span class="rating">⭐ 4.6</span>
+                            <span class="views">👁 15.3k</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <div class="comic-cover cover-forest">
+                        <span class="update-badge">Ch. 19</span>
+                        <div class="comic-overlay">
+                            <button class="quick-read">Read Now</button>
+                        </div>
+                        <div class="comic-emoji">🌲</div>
+                    </div>
+                    <div class="comic-info">
+                        <h3>Forest Spirits</h3>
+                        <p class="comic-author">Eva Green</p>
+                        <div class="comic-meta">
+                            <span class="rating">⭐ 4.8</span>
+                            <span class="views">👁 11.7k</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comic-card">
+                    <div class="comic-cover cover-time">
+                        <span class="update-badge">Ch. 37</span>
+                        <div class="comic-overlay">
+                            <button class="quick-read">Read Now</button>
+                        </div>
+                        <div class="comic-emoji">⏳</div>
+                    </div>
+                    <div class="comic-info">
+                        <h3>Time Rift</h3>
+                        <p class="comic-author">Chrono Master</p>
+                        <div class="comic-meta">
+                            <span class="rating">⭐ 4.9</span>
+                            <span class="views">👁 20.1k</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Comics Section -->
+    <section class="trending-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🔥 Trending Now</h2>
+                <a href="library.html?sort=trending" class="view-all">View All →</a>
+            </div>
+            <div class="trending-list">
+                <div class="trending-item">
+                    <span class="trend-rank">#1</span>
+                    <div class="trend-cover trend-supernova">
+                        <div class="trend-emoji">🌟</div>
+                    </div>
+                    <div class="trend-info">
+                        <h3>Supernova Rising</h3>
+                        <p>By Nova Prime</p>
+                        <div class="trend-stats">
+                            <span>📈 +2.5k this week</span>
+                        </div>
+                    </div>
+                    <a href="comic-detail.html" class="trend-link">View →</a>
+                </div>
+                <div class="trending-item">
+                    <span class="trend-rank">#2</span>
+                    <div class="trend-cover trend-darkmatter">
+                        <div class="trend-emoji">🕳️</div>
+                    </div>
+                    <div class="trend-info">
+                        <h3>Dark Matter</h3>
+                        <p>By Void Writer</p>
+                        <div class="trend-stats">
+                            <span>📈 +2.1k this week</span>
+                        </div>
+                    </div>
+                    <a href="comic-detail.html" class="trend-link">View →</a>
+                </div>
+                <div class="trending-item">
+                    <span class="trend-rank">#3</span>
+                    <div class="trend-cover trend-quantum">
+                        <div class="trend-emoji">⚛️</div>
+                    </div>
+                    <div class="trend-info">
+                        <h3>Quantum Leap</h3>
+                        <p>By Dr. Quantum</p>
+                        <div class="trend-stats">
+                            <span>📈 +1.8k this week</span>
+                        </div>
+                    </div>
+                    <a href="comic-detail.html" class="trend-link">View →</a>
+                </div>
+                <div class="trending-item">
+                    <span class="trend-rank">#4</span>
+                    <div class="trend-cover trend-flame">
+                        <div class="trend-emoji">🔥</div>
+                    </div>
+                    <div class="trend-info">
+                        <h3>Eternal Flame</h3>
+                        <p>By Phoenix Art</p>
+                        <div class="trend-stats">
+                            <span>📈 +1.5k this week</span>
+                        </div>
+                    </div>
+                    <a href="comic-detail.html" class="trend-link">View →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Genres Section -->
+    <section class="genres-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Explore Genres</h2>
+                <a href="genres.html" class="view-all">All Genres →</a>
+            </div>
+            <div class="genres-grid">
+                <a href="genres.html?genre=action" class="genre-card">
+                    <div class="genre-icon">⚔️</div>
+                    <h3>Action</h3>
+                    <p>1,234 comics</p>
+                </a>
+                <a href="genres.html?genre=fantasy" class="genre-card">
+                    <div class="genre-icon">🧙</div>
+                    <h3>Fantasy</h3>
+                    <p>987 comics</p>
+                </a>
+                <a href="genres.html?genre=romance" class="genre-card">
+                    <div class="genre-icon">💕</div>
+                    <h3>Romance</h3>
+                    <p>756 comics</p>
+                </a>
+                <a href="genres.html?genre=manga" class="genre-card">
+                    <div class="genre-icon">🎌</div>
+                    <h3>Manga</h3>
+                    <p>2,145 comics</p>
+                </a>
+                <a href="genres.html?genre=sci-fi" class="genre-card">
+                    <div class="genre-icon">🚀</div>
+                    <h3>Sci-Fi</h3>
+                    <p>1,432 comics</p>
+                </a>
+                <a href="genres.html?genre=horror" class="genre-card">
+                    <div class="genre-icon">👻</div>
+                    <h3>Horror</h3>
+                    <p>654 comics</p>
+                </a>
+                <a href="genres.html?genre=superhero" class="genre-card">
+                    <div class="genre-icon">🦸</div>
+                    <h3>Superhero</h3>
+                    <p>1,876 comics</p>
+                </a>
+                <a href="genres.html?genre=comedy" class="genre-card">
+                    <div class="genre-icon">😂</div>
+                    <h3>Comedy</h3>
+                    <p>543 comics</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Authors Section -->
+    <section class="authors-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Popular Authors</h2>
+                <a href="authors.html" class="view-all">View All →</a>
+            </div>
+            <div class="authors-grid">
+                <a href="author-detail.html" class="author-card">
+                    <div class="author-avatar author-alex">
+                        <div class="author-emoji">⚡</div>
+                    </div>
+                    <h3>Alex Thunder</h3>
+                    <p>15 comics</p>
+                    <div class="author-rating">⭐ 4.9</div>
+                </a>
+                <a href="author-detail.html" class="author-card">
+                    <div class="author-avatar author-maya">
+                        <div class="author-emoji">🎨</div>
+                    </div>
+                    <h3>Maya Chen</h3>
+                    <p>12 comics</p>
+                    <div class="author-rating">⭐ 4.8</div>
+                </a>
+                <a href="author-detail.html" class="author-card">
+                    <div class="author-avatar author-ryan">
+                        <div class="author-emoji">🗡️</div>
+                    </div>
+                    <h3>Ryan Blade</h3>
+                    <p>18 comics</p>
+                    <div class="author-rating">⭐ 4.7</div>
+                </a>
+                <a href="author-detail.html" class="author-card">
+                    <div class="author-avatar author-sarah">
+                        <div class="author-emoji">🌙</div>
+                    </div>
+                    <h3>Sarah Moon</h3>
+                    <p>10 comics</p>
+                    <div class="author-rating">⭐ 4.9</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended For You Section -->
+    <section class="recommended-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recommended For You</h2>
+                <a href="library.html" class="view-all">View All →</a>
+            </div>
+            <div class="recommended-grid">
+                <div class="comic-card-large">
+                    <div class="comic-cover-large cover-space">
+                        <span class="recommended-badge">For You</span>
+                        <div class="cover-character">🚀</div>
+                        <p class="cover-tagline">"Plot hole? Just warp around it."</p>
+                    </div>
+                    <div class="comic-info-large">
+                        <h3>Stellar Wars</h3>
+                        <p class="comic-author">By Galaxy Master</p>
+                        <p class="comic-summary">An epic space opera spanning galaxies...</p>
+                        <div class="comic-actions">
+                            <a href="reader.html" class="btn-primary">Read Now</a>
+                            <button class="btn-icon">❤️</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="comic-card-large">
+                    <div class="comic-cover-large cover-ocean">
+                        <span class="recommended-badge">For You</span>
+                        <div class="cover-character">🐙</div>
+                        <p class="cover-tagline">"Eight arms, zero chill."</p>
+                    </div>
+                    <div class="comic-info-large">
+                        <h3>Ocean Depths</h3>
+                        <p class="comic-author">By Aqua Artist</p>
+                        <p class="comic-summary">Dive into the mysteries of the deep...</p>
+                        <div class="comic-actions">
+                            <a href="reader.html" class="btn-primary">Read Now</a>
+                            <button class="btn-icon">❤️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download App Section -->
+    <section class="app-section">
+        <div class="container">
+            <div class="app-content">
+                <div class="app-text">
+                    <h2>Read Comics Anywhere</h2>
+                    <p>Download our mobile app for the best reading experience on the go!</p>
+                    <div class="app-buttons">
+                        <button class="btn-app">📱 Download App</button>
+                        <a href="library.html" class="btn-app-secondary">🌐 Read Online</a>
+                    </div>
+                </div>
+                <div class="app-image">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="phone-comic">
+                                <span class="phone-badge">Now Reading</span>
+                                <div class="phone-comic-emoji">📖</div>
+                                <p class="phone-comic-title">Mini Adventures</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <span class="logo-icon">📚</span>
+                        <h3>ComicVerse</h3>
+                    </div>
+                    <p>Your ultimate destination for digital comics and graphic novels.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-icon-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-icon-link" aria-label="Instagram">📸</a>
+                        <a href="#" class="social-icon-link" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="genres.html">Genres</a></li>
+                        <li><a href="authors.html">Authors</a></li>
+                        <li><a href="blog.html">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Sign Up</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="subscription.html">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ComicVerse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <span class="close-search" onclick="closeSearch()">&times;</span>
+            <input type="text" id="searchInput" placeholder="Search comics, authors, genres..." autofocus>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
+

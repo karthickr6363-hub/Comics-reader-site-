@@ -1,0 +1,247 @@
+/* Authors Page - Unique Card Design with Hover Effects */
+
+.authors-hero {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: var(--white);
+    padding: 5rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.authors-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.authors-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.authors-hero p {
+    font-size: 1.5rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+}
+
+.authors-main {
+    padding: 4rem 0;
+    background: var(--light-bg);
+}
+
+.authors-filter {
+    margin-bottom: 3rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.authors-filter input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border: 3px solid var(--text-light);
+    border-radius: 50px;
+    transition: var(--transition);
+    background: var(--white);
+}
+
+.authors-filter input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.1);
+}
+
+.authors-grid-detailed {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.author-card-detailed {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.author-card-detailed::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.author-card-detailed:hover::before {
+    opacity: 1;
+    top: -30%;
+    right: -30%;
+}
+
+.author-card-detailed:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.author-avatar-large {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    border: 5px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: var(--transition);
+}
+
+.author-avatar-emoji {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem;
+    z-index: 1;
+}
+
+.author-card-detailed:hover .author-avatar-large {
+    transform: scale(1.1);
+    border-color: var(--secondary-color);
+}
+
+.author-avatar-large::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.author-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    position: relative;
+    z-index: 1;
+}
+
+.author-bio {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+.author-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 1.5rem 0;
+    padding: 1.5rem 0;
+    border-top: 2px solid var(--light-bg);
+    border-bottom: 2px solid var(--light-bg);
+    position: relative;
+    z-index: 1;
+}
+
+.author-stat {
+    text-align: center;
+}
+
+.author-stat-number {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    display: block;
+}
+
+.author-stat-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 0.25rem;
+}
+
+.author-rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: var(--light-bg);
+    border-radius: 25px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.author-follow-btn {
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.author-follow-btn:hover {
+    background: #ee5a6f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.author-follow-btn.following {
+    background: var(--secondary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .authors-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .authors-grid-detailed {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .author-card-detailed {
+        padding: 2rem;
+    }
+}
+

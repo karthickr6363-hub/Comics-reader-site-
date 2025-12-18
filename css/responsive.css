@@ -1,0 +1,206 @@
+. /* Global responsive overrides for mobile & tablet */
+
+/* Base image responsiveness */
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent horizontal scrolling issues on small screens */
+body {
+    overflow-x: hidden;
+}
+
+/* ===== 1024px and below (small laptops / large tablets) ===== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .hero-section {
+        margin-bottom: 3rem;
+    }
+
+    .genres-grid,
+    .authors-grid,
+    .recommended-grid,
+    .comics-grid-view {
+        gap: 1.5rem;
+    }
+}
+
+/* ===== 768px and below (tablets) ===== */
+@media (max-width: 768px) {
+    /* Navigation spacing */
+    .navbar .container {
+        align-items: center;
+    }
+
+    .nav-brand {
+        font-size: 1.3rem;
+    }
+
+    /* Stack some grids into single column */
+    .genres-grid,
+    .authors-grid,
+    .recommended-grid,
+    .trending-list {
+        grid-template-columns: 1fr !important;
+    }
+
+    .app-content {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Forms & cards full width */
+    .contact-form-wrapper,
+    .contact-info,
+    .author-card-detailed,
+    .plan-card,
+    .dashboard-card {
+        width: 100%;
+    }
+}
+
+/* ===== 425px and below (large phones) ===== */
+@media (max-width: 425px) {
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-app,
+    .btn-app-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .genres-grid,
+    .authors-grid {
+        gap: 1.25rem;
+    }
+
+    .author-card,
+    .genre-card,
+    .comic-card,
+    .library-comic-card {
+        border-radius: 16px;
+    }
+}
+
+/* ===== 375px and below (medium phones) ===== */
+@media (max-width: 375px) {
+    .navbar .container {
+        padding: 0 10px;
+    }
+
+    .nav-actions {
+        gap: 0.25rem;
+    }
+
+    .btn-login,
+    .btn-signup {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    .hero-section {
+        padding-top: 3rem;
+    }
+}
+
+/* ===== 320px and below (small phones) ===== */
+@media (max-width: 320px) {
+    .slide-title {
+        font-size: 1.6rem;
+    }
+
+    .slide-description {
+        font-size: 0.9rem;
+    }
+
+    .comic-cover-large {
+        width: 150px;
+        height: 220px;
+    }
+
+    .app-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+/* Global responsive helpers and tweaks
+   NOTE: These only refine layout; base design styles stay in the main CSS files. */
+
+/* Large tablets / small laptops */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 16px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-app,
+    .btn-app-secondary {
+        padding: 0.8rem 1.6rem;
+    }
+}
+
+/* Large phones (425px and down) */
+@media (max-width: 425px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Medium phones (375px and down) */
+@media (max-width: 375px) {
+    .btn-login,
+    .btn-signup {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Small phones (320px and down) */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 8px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+}
+
+

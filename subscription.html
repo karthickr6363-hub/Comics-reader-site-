@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Subscription - ComicVerse</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/subscription.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">ComicVerse</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="genres.html">Genres</a></li>
+                <li><a href="authors.html">Authors</a></li>
+                <li><a href="blog.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" onclick="openSearch()">🔍</button>
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="register.html" class="btn-signup">Sign Up</a>
+            </div>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Subscription Hero -->
+    <section class="subscription-hero">
+        <div class="container">
+            <h1>Unlock Premium Features</h1>
+            <p>Get unlimited access to all comics and exclusive content</p>
+        </div>
+    </section>
+
+    <!-- Plans Comparison -->
+    <section class="plans-section">
+        <div class="container">
+            <div class="plans-comparison">
+                <!-- Free Plan -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Free</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">$0</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Limited comics access</li>
+                        <li>✓ Basic reading features</li>
+                        <li>✓ Ads supported</li>
+                        <li>✗ No offline downloads</li>
+                        <li>✗ No premium content</li>
+                    </ul>
+                    <button class="btn-plan">Current Plan</button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="plan-card featured">
+                    <div class="plan-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Premium</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">$9.99</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Unlimited comics access</li>
+                        <li>✓ Ad-free experience</li>
+                        <li>✓ Offline downloads</li>
+                        <li>✓ Early access to new releases</li>
+                        <li>✓ Premium exclusive content</li>
+                        <li>✓ HD quality reading</li>
+                    </ul>
+                    <button class="btn-plan btn-plan-primary" onclick="selectPlan('premium')">Upgrade Now</button>
+                </div>
+
+                <!-- Annual Plan -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Annual</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">$79.99</span>
+                            <span class="price-period">/year</span>
+                        </div>
+                        <div class="plan-savings">Save 33%</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ All Premium features</li>
+                        <li>✓ Best value</li>
+                        <li>✓ Priority support</li>
+                        <li>✓ Exclusive annual rewards</li>
+                    </ul>
+                    <button class="btn-plan" onclick="selectPlan('annual')">Choose Annual</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="paymentSection" class="payment-section" style="display: none;">
+        <div class="container">
+            <div class="payment-container">
+                <h2>Complete Your Subscription</h2>
+                <div class="payment-methods">
+                    <button class="payment-method active" onclick="selectPaymentMethod('card')">
+                        💳 Credit/Debit Card
+                    </button>
+                    <button class="payment-method" onclick="selectPaymentMethod('paypal')">
+                        🔵 PayPal
+                    </button>
+                </div>
+                <form class="payment-form" id="paymentForm">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiry Date</label>
+                            <input type="text" placeholder="MM/YY" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" placeholder="123" maxlength="3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cardholder Name</label>
+                        <input type="text" placeholder="John Doe">
+                    </div>
+                    <button type="submit" class="btn-pay">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <span class="logo-icon">📚</span>
+                        <h3>ComicVerse</h3>
+                    </div>
+                    <p>Your ultimate destination for digital comics and graphic novels.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-icon-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-icon-link" aria-label="Instagram">📸</a>
+                        <a href="#" class="social-icon-link" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="genres.html">Genres</a></li>
+                        <li><a href="authors.html">Authors</a></li>
+                        <li><a href="blog.html">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Sign Up</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="subscription.html">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ComicVerse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/subscription.js"></script>
+</body>
+</html>
+

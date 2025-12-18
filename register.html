@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ComicVerse</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-left">
+            <a href="index.html" class="auth-brand-link">
+                <div class="auth-brand">
+                    <span class="logo-icon">📚</span>
+                    <h1>ComicVerse</h1>
+                </div>
+            </a>
+            <div class="auth-illustration"></div>
+        </div>
+        <div class="auth-right">
+            <div class="auth-form-container">
+                <h2>Create Account</h2>
+                <p class="auth-subtitle">Join ComicVerse and start reading</p>
+                
+                <form class="auth-form" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required placeholder="••••••••">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="••••••••">
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" name="terms" required>
+                            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-auth-submit">Create Account</button>
+                </form>
+                
+                <div class="auth-divider">
+                    <span>Or sign up with</span>
+                </div>
+                
+                <div class="social-login">
+                    <button class="btn-social" onclick="socialLogin('google')">
+                        <span class="social-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill="#EA4335" d="M12 10.2v3.9h5.4c-.2 1.2-.9 2.4-2 3.1v2.6h3.2C20.5 18.2 21.5 15.4 21.5 12c0-.7-.1-1.4-.2-2H12z"/>
+                                <path fill="#4285F4" d="M3.5 7.6l2.7 2 2-1.7C9 6.7 10.4 6.2 12 6.2c1.9 0 3.6.8 4.7 2l3-3C18.1 3.1 15.3 1.8 12 1.8 8.4 1.8 5.3 3.7 3.5 7.6z"/>
+                                <path fill="#FBBC05" d="M12 22.2c3.3 0 6.1-1.1 8.1-3.1l-3.2-2.6c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H3.4v2.9C5.4 19.5 8.4 22.2 12 22.2z"/>
+                                <path fill="#34A853" d="M5.6 12c-.2-.6-.3-1.2-.3-1.8 0-.6.1-1.2.3-1.8V5.5H3.4C2.8 6.7 2.5 8.1 2.5 9.6c0 1.5.3 2.9.9 4.1l2.2-1.7z"/>
+                            </svg>
+                        </span>
+                        Google
+                    </button>
+                    <button class="btn-social" onclick="socialLogin('facebook')">
+                        <span class="social-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill="#1877F2" d="M22 12.1C22 6.6 17.5 2 12 2S2 6.6 2 12.1C2 17 5.7 21.1 10.4 22v-7h-2.5v-2.9h2.5V9.4c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5v1.8h2.7L15.9 15h-2.3v7c4.7-.8 8.4-5 8.4-9.9z"/>
+                            </svg>
+                        </span>
+                        Facebook
+                    </button>
+                </div>
+                
+                <p class="auth-footer">
+                    Already have an account? <a href="login.html">Sign In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comics Library - ComicVerse</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/library.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">ComicVerse</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="library.html" class="active">Library</a></li>
+                <li><a href="genres.html">Genres</a></li>
+                <li><a href="authors.html">Authors</a></li>
+                <li><a href="blog.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" onclick="openSearch()">🔍</button>
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="register.html" class="btn-signup">Sign Up</a>
+            </div>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Library Header -->
+    <section class="library-header">
+        <div class="container">
+            <h1>Comics Library</h1>
+            <p>Discover thousands of amazing comics</p>
+        </div>
+    </section>
+
+    <!-- Filters and Controls -->
+    <section class="library-controls">
+        <div class="container">
+            <div class="controls-top">
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid" onclick="setView('grid')">⊞ Grid</button>
+                    <button class="view-btn" data-view="list" onclick="setView('list')">☰ List</button>
+                </div>
+                <div class="sort-controls">
+                    <label>Sort by:</label>
+                    <select id="sortSelect" onchange="sortComics()">
+                        <option value="popular">Popular</option>
+                        <option value="newest">Newest</option>
+                        <option value="az">A-Z</option>
+                        <option value="za">Z-A</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label>Genre:</label>
+                    <select id="genreFilter" onchange="filterComics()">
+                        <option value="all">All Genres</option>
+                        <option value="action">Action</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="romance">Romance</option>
+                        <option value="manga">Manga</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                        <option value="horror">Horror</option>
+                        <option value="superhero">Superhero</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Author:</label>
+                    <select id="authorFilter" onchange="filterComics()">
+                        <option value="all">All Authors</option>
+                        <option value="alex-thunder">Alex Thunder</option>
+                        <option value="maya-chen">Maya Chen</option>
+                        <option value="ryan-blade">Ryan Blade</option>
+                        <option value="sarah-moon">Sarah Moon</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Year:</label>
+                    <select id="yearFilter" onchange="filterComics()">
+                        <option value="all">All Years</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Language:</label>
+                    <select id="languageFilter" onchange="filterComics()">
+                        <option value="all">All Languages</option>
+                        <option value="english">English</option>
+                        <option value="spanish">Spanish</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="korean">Korean</option>
+                    </select>
+                </div>
+                <button class="clear-filters" onclick="clearFilters()">Clear Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile / Tablet Filters Toggle -->
+    <button class="filters-toggle" onclick="toggleFiltersPanel()">Filters ⚙️</button>
+
+    <!-- Comics Grid/List -->
+    <section class="library-content">
+        <div class="container">
+            <div id="comicsContainer" class="comics-grid-view">
+                <!-- Comics will be dynamically loaded here -->
+            </div>
+            <div id="loadingIndicator" class="loading">Loading comics...</div>
+            <div id="noResults" class="no-results" style="display: none;">
+                <p>No comics found matching your filters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pagination -->
+    <section class="pagination-section">
+        <div class="container">
+            <div class="pagination">
+                <button class="page-btn" onclick="changePage(-1)">‹ Previous</button>
+                <div class="page-numbers">
+                    <span class="page-number active">1</span>
+                    <span class="page-number">2</span>
+                    <span class="page-number">3</span>
+                    <span class="page-number">4</span>
+                    <span class="page-number">5</span>
+                </div>
+                <button class="page-btn" onclick="changePage(1)">Next ›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <span class="logo-icon">📚</span>
+                        <h3>ComicVerse</h3>
+                    </div>
+                    <p>Your ultimate destination for digital comics and graphic novels.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-icon-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-icon-link" aria-label="Instagram">📸</a>
+                        <a href="#" class="social-icon-link" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="genres.html">Genres</a></li>
+                        <li><a href="authors.html">Authors</a></li>
+                        <li><a href="blog.html">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Sign Up</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="subscription.html">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ComicVerse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <span class="close-search" onclick="closeSearch()">&times;</span>
+            <input type="text" id="searchInput" placeholder="Search comics, authors, genres..." autofocus>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/library.js"></script>
+</body>
+</html>
+

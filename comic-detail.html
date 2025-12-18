@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Details - ComicVerse</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/comic-detail.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">ComicVerse</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="genres.html">Genres</a></li>
+                <li><a href="authors.html">Authors</a></li>
+                <li><a href="blog.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="search-btn" onclick="openSearch()">🔍</button>
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="register.html" class="btn-signup">Sign Up</a>
+            </div>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Comic Hero Section -->
+    <section class="comic-hero">
+        <div class="container">
+            <div class="comic-hero-content">
+                <div class="comic-cover-detail">
+                    <div class="cover-image-large"></div>
+                    <div class="cover-badges">
+                        <span class="badge-new">NEW</span>
+                        <span class="badge-rating">⭐ 4.8</span>
+                    </div>
+                </div>
+                <div class="comic-details-main">
+                    <h1 class="comic-title-main">The Last Guardian</h1>
+                    <p class="comic-author-main">By <a href="author-detail.html">Alex Thunder</a></p>
+                    
+                    <div class="comic-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Rating</span>
+                            <span class="stat-value">4.8 ⭐</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Views</span>
+                            <span class="stat-value">12.5k 👁</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Chapters</span>
+                            <span class="stat-value">45</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Status</span>
+                            <span class="stat-value ongoing">Ongoing</span>
+                        </div>
+                    </div>
+
+                    <div class="comic-genres-detail">
+                        <span class="genre-badge">Superhero</span>
+                        <span class="genre-badge">Action</span>
+                        <span class="genre-badge">Adventure</span>
+                    </div>
+
+                    <p class="comic-summary">
+                        In a world where heroes are fading, one guardian rises to protect the last hope of humanity. 
+                        Follow the epic journey of a reluctant hero who must overcome impossible odds to save everything 
+                        he holds dear. With stunning artwork and a gripping storyline, this comic will keep you on the 
+                        edge of your seat from start to finish.
+                    </p>
+
+                    <div class="comic-actions-main">
+                        <a href="reader.html" class="btn-start-reading">▶ Start Reading</a>
+                        <button class="btn-favorite-main" onclick="toggleFavorite()">
+                            <span id="favoriteIcon">❤️</span> Add to Favorites
+                        </button>
+                        <button class="btn-share" onclick="shareComic()">🔗 Share</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapters Section -->
+    <section class="chapters-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Chapters</h2>
+                <div class="chapter-controls">
+                    <button class="btn-sort" onclick="sortChapters()">Sort: Newest First</button>
+                </div>
+            </div>
+            
+            <div class="chapters-list" id="chaptersList">
+                <!-- Chapters will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Comics -->
+    <section class="related-section">
+        <div class="container">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <div class="related-cover"></div>
+                    <h3>Cyber Dreams</h3>
+                    <p>By Maya Chen</p>
+                </div>
+                <div class="related-card">
+                    <div class="related-cover"></div>
+                    <h3>Shadow Warriors</h3>
+                    <p>By Ryan Blade</p>
+                </div>
+                <div class="related-card">
+                    <div class="related-cover"></div>
+                    <h3>Supernova Rising</h3>
+                    <p>By Nova Prime</p>
+                </div>
+                <div class="related-card">
+                    <div class="related-cover"></div>
+                    <h3>Dark Matter</h3>
+                    <p>By Void Writer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <span class="logo-icon">📚</span>
+                        <h3>ComicVerse</h3>
+                    </div>
+                    <p>Your ultimate destination for digital comics and graphic novels.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-icon-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-icon-link" aria-label="Instagram">📸</a>
+                        <a href="#" class="social-icon-link" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="genres.html">Genres</a></li>
+                        <li><a href="authors.html">Authors</a></li>
+                        <li><a href="blog.html">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Sign Up</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="subscription.html">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ComicVerse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <span class="close-search" onclick="closeSearch()">&times;</span>
+            <input type="text" id="searchInput" placeholder="Search comics, authors, genres..." autofocus>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/comic-detail.js"></script>
+</body>
+</html>
+

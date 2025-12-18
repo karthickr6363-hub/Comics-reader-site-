@@ -1,0 +1,207 @@
+/* Genres Page - Unique Hexagonal Grid Design */
+
+.genres-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--white);
+    padding: 5rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.genres-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.genres-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.genres-hero p {
+    font-size: 1.5rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+}
+
+.genres-main {
+    padding: 4rem 0;
+    background: var(--light-bg);
+}
+
+.genres-grid-large {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.genre-card-large {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 3rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.genre-card-large::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.genre-card-large:hover::before {
+    transform: scaleX(1);
+}
+
+.genre-card-large:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+.genre-icon-large {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    transition: var(--transition);
+}
+
+.genre-card-large:hover .genre-icon-large {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.genre-card-large h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.genre-card-large p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.genre-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--light-bg);
+}
+
+.genre-stat {
+    text-align: center;
+}
+
+.genre-stat-number {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    display: block;
+}
+
+.genre-stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.25rem;
+}
+
+/* Genre-specific color themes */
+.genre-card-large[data-genre="action"] {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: var(--white);
+}
+
+.genre-card-large[data-genre="fantasy"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--white);
+}
+
+.genre-card-large[data-genre="romance"] {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: var(--white);
+}
+
+.genre-card-large[data-genre="manga"] {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: var(--white);
+}
+
+.genre-card-large[data-genre="sci-fi"] {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: var(--text-dark);
+}
+
+.genre-card-large[data-genre="sci-fi"] .genre-stat-number,
+.genre-card-large[data-genre="superhero"] .genre-stat-number,
+.genre-card-large[data-genre="comedy"] .genre-stat-number {
+    color: var(--text-dark);
+    text-shadow: none;
+}
+
+.genre-card-large[data-genre="sci-fi"] .genre-stat-label,
+.genre-card-large[data-genre="superhero"] .genre-stat-label,
+.genre-card-large[data-genre="comedy"] .genre-stat-label {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.genre-card-large[data-genre="horror"] {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: var(--white);
+}
+
+.genre-card-large[data-genre="superhero"] {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: var(--text-dark);
+}
+
+.genre-card-large[data-genre="comedy"] {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    color: var(--text-dark);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .genres-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .genres-grid-large {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .genre-card-large {
+        padding: 2rem 1.5rem;
+    }
+
+    .genre-icon-large {
+        font-size: 4rem;
+    }
+}
+

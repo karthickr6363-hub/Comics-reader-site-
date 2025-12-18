@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ComicVerse</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">ComicVerse</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="genres.html">Genres</a></li>
+                <li><a href="authors.html">Authors</a></li>
+                <li><a href="blog.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="dashboard.html" class="btn-login">Dashboard</a>
+                <a href="subscription.html" class="btn-signup">Premium</a>
+            </div>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-profile">
+                <div class="profile-avatar"></div>
+                <div class="profile-info">
+                    <h1>John Doe</h1>
+                    <p>Free Member</p>
+                </div>
+                <a href="subscription.html" class="btn-upgrade">Upgrade to Premium</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Content -->
+    <section class="dashboard-content">
+        <div class="container">
+            <div class="dashboard-tabs">
+                <button class="tab-btn active" onclick="switchTab('reading')">Reading History</button>
+                <button class="tab-btn" onclick="switchTab('favorites')">Favorites</button>
+                <button class="tab-btn" onclick="switchTab('downloads')">Downloads</button>
+                <button class="tab-btn" onclick="switchTab('bookmarks')">Bookmarks</button>
+            </div>
+
+            <!-- Reading History Tab -->
+            <div id="readingTab" class="tab-content active">
+                <h2>Continue Reading</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-cover"></div>
+                        <div class="card-info">
+                            <h3>The Last Guardian</h3>
+                            <p>Chapter 5, Page 12</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                            <a href="reader.html" class="btn-continue">Continue Reading</a>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-cover"></div>
+                        <div class="card-info">
+                            <h3>Cyber Dreams</h3>
+                            <p>Chapter 3, Page 8</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 30%"></div>
+                            </div>
+                            <a href="reader.html" class="btn-continue">Continue Reading</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorites Tab -->
+            <div id="favoritesTab" class="tab-content">
+                <h2>Your Favorites</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-cover"></div>
+                        <div class="card-info">
+                            <h3>Shadow Warriors</h3>
+                            <p>By Ryan Blade</p>
+                            <button class="btn-remove">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Downloads Tab -->
+            <div id="downloadsTab" class="tab-content">
+                <h2>Downloaded Comics</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-cover"></div>
+                        <div class="card-info">
+                            <h3>Space Odyssey</h3>
+                            <p>Downloaded: Jan 15, 2024</p>
+                            <button class="btn-remove">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bookmarks Tab -->
+            <div id="bookmarksTab" class="tab-content">
+                <h2>Your Bookmarks</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-cover"></div>
+                        <div class="card-info">
+                            <h3>The Last Guardian</h3>
+                            <p>Chapter 3, Page 5</p>
+                            <a href="reader.html" class="btn-continue">Go to Bookmark</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <span class="logo-icon">📚</span>
+                        <h3>ComicVerse</h3>
+                    </div>
+                    <p>Your ultimate destination for digital comics and graphic novels.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-icon-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-icon-link" aria-label="Instagram">📸</a>
+                        <a href="#" class="social-icon-link" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="genres.html">Genres</a></li>
+                        <li><a href="authors.html">Authors</a></li>
+                        <li><a href="blog.html">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Sign Up</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="subscription.html">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ComicVerse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+
